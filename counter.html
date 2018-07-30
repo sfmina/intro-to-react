@@ -6,6 +6,7 @@
   <body>
 
     <div id="app"></div>
+    <div id="app2"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
@@ -13,6 +14,26 @@
 
     <script type="text/babel">
 
+      class Students extends React.Component {
+        constructor(props){
+           super(props);
+           this.state = {
+             city: "San Francisco"
+           }
+      }
+
+      render() {
+        return (
+          <div>
+              <img src={this.props.image} alt="Bloc Logo"/>
+              <h2>Honors: {this.props.label}</h2>
+              <h3>Hometown: {this.state.city}</h3>
+              <p>Current Date: {this.props.date.toLocaleDateString()}</p>
+            </div>
+          );
+      }
+    }
+      
       class Counter extends React.Component {
         constructor(props){
            super(props);
@@ -42,11 +63,24 @@
         label: "Web Developer Track"
       }
 
+      Students.defaultProps = {
+        label: "Scholarship winner"
+      }
+
       ReactDOM.render(
         <Counter
           date={info.date}
           image={info.image}/>,document.getElementById('app')
       );
+
+      ReactDOM.render(
+        <Students 
+        date={info.date}
+          image={info.image}/>,document.getElementById('app2')
+      );
+      
+
+      
 
     </script>
   </body>
