@@ -28,12 +28,22 @@
        				);
        		}
        	}
+       		class Signature extends React.Component {
+       		render() {
+       			return (
+       				<p>Frank Mina</p>
+       				);
+       		}
+       	}
  
        ReactDOM.render(
          <Greeting />, document.getElementById('app')
        );
        ReactDOM.render(
          <Goodbye />, document.getElementById('app2')
+       );
+       ReactDOM.render(
+         <Signature />, document.getElementById('app2')
        );
      </script>
   </body>
